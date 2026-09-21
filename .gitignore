@@ -1,0 +1,35 @@
+# Credentials and local settings
+.env
+.env.*
+*.pem
+*.key
+*token*
+.netrc
+
+# Environments and Python build products
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# Local data, weights, generated answers, and logs are never source artifacts.
+data/
+models/
+checkpoints/
+outputs/
+logs/
+.cache/
+*.arrow
+*.parquet
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.jsonl
+*.log
+.DS_Store

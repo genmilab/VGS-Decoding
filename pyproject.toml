@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vgs-decoding-vqarad"
+version = "0.1.0"
+description = "VGS inference for LLaVA-Med and MedGemma on VQA-RAD"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+license = {file = "LICENSE"}
+dependencies = [
+    "torch==2.7.1",
+    "torchvision==0.22.1",
+    "transformers==4.53.0",
+    "huggingface-hub==0.33.4",
+    "tokenizers==0.21.2",
+    "datasets==4.0.0",
+    "accelerate==1.10.1",
+    "numpy==2.2.6",
+    "Pillow>=10.4,<13",
+    "sentencepiece==0.2.1",
+    "protobuf==5.29.5",
+    "safetensors==0.5.3",
+]
+
+[project.scripts]
+vgs-vqarad = "vgs_decoding:main"
+vgs-llavamed-vqarad = "vgs_llavamed_vqarad:main"
+vgs-medgemma-vqarad = "vgs_medgemma_vqarad:main"
+
+[tool.setuptools]
+py-modules = ["vgs_decoding", "vgs_llavamed_vqarad", "vgs_medgemma_vqarad"]
