@@ -1,0 +1,13 @@
+*
+!Dockerfile
+!pyproject.toml
+!README.md
+!LICENSE
+!vgs_decoding.py
+!vgs_llavamed_vqarad.py
+!vgs_medgemma_vqarad.py
+!hf_demo/
+!hf_demo/Dockerfile
+!hf_demo/ui-requirements.txt
+!hf_demo/app.py
+!hf_demo/worker.py

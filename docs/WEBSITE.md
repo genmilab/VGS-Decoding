@@ -12,6 +12,11 @@ credit, VGS method, three main benchmark tables, all supplied figure assets,
 The interactive slider illustrates the probability formula with synthetic
 probabilities. Code contributors are `govindakolli` and `adinathdukre`.
 
+The separate Demo section links to `hf_demo/` while Hugging Face hosting and
+GPU access are pending. It is distinct from the synthetic formula slider.
+Replace its destination and status only after a Space has been deployed and
+tested; do not invent a live Hugging Face URL.
+
 ## Preview
 
 From the repository root:

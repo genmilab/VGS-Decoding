@@ -49,7 +49,8 @@
         <nav aria-label="Main navigation">
           <a href="#overview">Abstract</a><a href="#method">Method</a
           ><a href="#results">Results</a><a href="#examples">Examples</a
-          ><a href="#implementation">Code</a><a href="#citation">Citation</a>
+          ><a href="#implementation">Code</a><a href="#demo">Demo</a
+          ><a href="#citation">Citation</a>
         </nav>
         <a class="nav-code" href="https://github.com/genmilab/VGS-Decoding"
           >GitHub <span aria-hidden="true">↗</span></a
@@ -132,6 +133,9 @@
             ><svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h4" /></svg
             >Results</a
+          >
+          <a class="button button-secondary" href="#demo"
+            >Interactive demo <span aria-hidden="true">↓</span></a
           >
         </div>
         <p class="publication-note">
@@ -537,6 +541,9 @@
           Table 1 of the supplied three-dataset submission, including SLAKE. The
           linked arXiv v1 presents the earlier two-dataset study. They are paper
           records, not new evaluations of the released code.
+          <a href="PAPER_VERIFICATION.md"
+            >Paper verification and source-table notes ↗</a
+          >
         </div>
         <div class="metric-key">
           <p>
@@ -2375,7 +2382,7 @@
                         id="appendix-component-ablation-llava-med-manuscript-appendix-row-2"
                         scope="row"
                       >
-                        VGS probe only (corrected)
+                        VGS probe only (= Greedy)
                       </th>
                       <td
                         headers="appendix-component-ablation-llava-med-manuscript-appendix-row-2 appendix-component-ablation-llava-med-manuscript-appendix-col-1"
@@ -2551,7 +2558,7 @@
                         id="appendix-component-ablation-medgemma-manuscript-appendix-row-2"
                         scope="row"
                       >
-                        VGS probe only (corrected)
+                        VGS probe only (= Greedy)
                       </th>
                       <td
                         headers="appendix-component-ablation-medgemma-manuscript-appendix-row-2 appendix-component-ablation-medgemma-manuscript-appendix-col-1"
@@ -6415,6 +6422,41 @@
               </div>
             </article>
           </div>
+        </div>
+      </section>
+      <section class="section container" id="demo" aria-labelledby="demo-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">INTERACTIVE RESEARCH DEMO</p>
+            <h2 id="demo-title">Explore the released decoder.</h2>
+          </div>
+          <p>
+            MedGemma · LLaVA-Med<br />Public VQA-RAD examples or research
+            images.
+          </p>
+        </div>
+        <div class="demo-preview">
+          <div>
+            <span class="small-label"
+              >HUGGING FACE SPACE · HOSTING PENDING</span
+            >
+            <p>
+              The prepared demo lets you choose a backbone, adjust VGS strength,
+              compare against an α = 0 greedy control, and inspect
+              selected-token scores. It uses the same shared decoder as the code
+              release.
+            </p>
+            <p class="fine-print">
+              The live Space link will be added after the hosting account and
+              GPU are confirmed. This is a research tool, not a clinical system;
+              use only public or de-identified research images.
+            </p>
+          </div>
+          <a
+            class="button button-secondary"
+            href="https://github.com/genmilab/VGS-Decoding/tree/main/hf_demo"
+            >Demo code &amp; setup <span aria-hidden="true">↗</span></a
+          >
         </div>
       </section>
       <section

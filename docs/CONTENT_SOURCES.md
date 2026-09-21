@@ -71,6 +71,11 @@ or clinical-safety measurements. The page does not turn the selected appendix
 examples into an aggregate success-rate claim. Ablation and significance values
 are identified as manuscript-reported, not independently revalidated here.
 
+See [the paper-to-project verification](PAPER_VERIFICATION.md) for the checked
+source snapshot, explicit corrections, and five unresolved source-table
+overall-score inconsistencies. Transcription verification does not validate
+the underlying experiments or resolve inconsistent source aggregates.
+
 ## Figures and appendix examples
 
 All 12 files in the supplied manuscript image directory are retained unchanged:
@@ -100,5 +105,8 @@ unchanged; the lab logo is not counted as a paper figure.
 
 The three Python release files remain unchanged: LLaVA-Med/VQA-RAD and
 MedGemma/VQA-RAD entry points plus shared VGS decoding. No evaluation scripts
-are added. Repository and Pages links target `genmilab/VGS-Decoding`; local
-preparation does not imply a completed GitHub upload or a live Pages deployment.
+are added. The optional `hf_demo/` interface invokes the same core in a separate
+environment; it is a software addition rather than a manuscript experiment.
+Repository and Pages links target `genmilab/VGS-Decoding`. The first public
+release and Pages deployment were verified on 21 September 2026; the live
+Hugging Face Space remains pending hosting/GPU confirmation.

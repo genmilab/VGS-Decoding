@@ -8,8 +8,11 @@ Repository owner: **genmilab**, the GitHub organization whose display name is
 - Project website: `https://genmilab.github.io/VGS-Decoding/`
 - Contributors: `govindakolli` and `adinathdukre`, using separate personal logins.
 
-These are publishing instructions, not a claim that upload or deployment has
-already happened. Review the final scientific content before making it public.
+The initial public release and GitHub Pages deployment were verified on
+21 September 2026. The setup instructions below are retained for reference;
+do not repeat repository creation or the initial commit in the existing checkout.
+For subsequent updates, review the intended changes, commit, and push normally.
+Hugging Face hosting is separate and remains pending.
 
 ## 1. Create the repository under the lab
 
@@ -97,7 +100,7 @@ git remote -v
 git config --local user.name "Adinath Madhavrao Dukre"
 git config --local user.email "REPLACE_WITH_YOUR_ADINATH_GITHUB_EMAIL"
 
-git add .gitattributes .gitignore .github LICENSE NOTICE.md README.md pyproject.toml docs vgs_decoding.py vgs_llavamed_vqarad.py vgs_medgemma_vqarad.py
+git add .gitattributes .gitignore .dockerignore .github LICENSE NOTICE.md README.md pyproject.toml docs hf_demo vgs_decoding.py vgs_llavamed_vqarad.py vgs_medgemma_vqarad.py
 git diff --cached --stat
 git diff --cached --check
 git commit -m "Release VGS-Decoding inference code and project website"

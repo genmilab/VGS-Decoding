@@ -93,6 +93,23 @@
 .results-section {
   border-top: 1px solid var(--line);
 }
+.demo-preview {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 28px;
+  background: var(--mint);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.demo-preview > div {
+  flex: 1 1 480px;
+  min-width: 0;
+}
+.demo-preview p {
+  margin-top: 12px;
+}
 .motivation-grid {
   display: grid;
   grid-template-columns: 1.35fr 1fr;

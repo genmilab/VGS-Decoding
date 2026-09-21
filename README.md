@@ -9,7 +9,7 @@ Code accompanying [**VGS-Decoding: Visual Grounding Score Guided Decoding for
 Hallucination Mitigation in Medical VLMs**](https://arxiv.org/abs/2603.20314).
 
 Project-page authors: **Govinda Kolli\***, **Adinath Madhavrao Dukre\***,
-Yifan Lu, Ziyun Zou, Dwarikanath Mahapatra, Behzad Bozorgtabar, and Imran Razzak. \* Equal first authors. See the website for verified affiliations and
+Yifan Lu, Ziyun Zou, Dwarikanath Mahapatra, Behzad Bozorgtabar, and Imran Razzak. \* Equal first authors. See the website for the author-requested affiliation list and
 [version notes](docs/CONTENT_SOURCES.md) for the linked preprint's author list.
 
 The supplied extended manuscript studies LLaVA-Med, CheXagent, and MedGemma on
@@ -25,6 +25,7 @@ vgs_decoding.py         Shared decoder, image perturbation, model/input loading
 pyproject.toml         Pinned dependencies and installable commands
 docs/decoding.md        Formula, prompts, cache handling, and configuration
 docs/index.html         Paper project website with original manuscript figures
+hf_demo/                Optional Hugging Face-ready interactive demo
 ```
 
 The two entry points select their model and call the same core. In
@@ -159,6 +160,19 @@ Run `python vgs_llavamed_vqarad.py --help` or
 `--device cpu` is explicit opt-in and uses float32; full-model CPU generation
 can be very slow and memory-intensive. It is not the default fallback.
 
+## Interactive demo
+
+An optional [Hugging Face-ready demo](hf_demo/README.md) wraps the same shared
+decoder for MedGemma and LLaVA-Med. It supports public VQA-RAD test examples,
+de-identified research-image uploads, adjustable guidance, an alpha=0 greedy
+control, and selected-token traces. It does not add benchmark evaluation code.
+
+The demo's Gradio interface and pinned inference dependencies run in separate
+environments. **Hosting/GPU selection is pending; no live Space is claimed.**
+The three command-line inference files and their default dependencies are
+unchanged. The website's Demo section links to setup instructions until a
+live Space is confirmed.
+
 ## Output and failure handling
 
 Each run creates:
@@ -208,3 +222,6 @@ qualitative case studies, followed by the released VQA-RAD code. All figures and
 case responses come from the supplied manuscript materials. See
 [website instructions](docs/WEBSITE.md) for preview and GitHub Pages deployment,
 and [content sources](docs/CONTENT_SOURCES.md) for version and metric definitions.
+The [paper-to-project verification](docs/PAPER_VERIFICATION.md) distinguishes
+checked transcriptions from author-requested updates, explicit corrections,
+and unresolved source-table consistency issues.

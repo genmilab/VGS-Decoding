@@ -1,0 +1,2 @@
+# Keep the UI separate: this release requires a newer huggingface-hub than the decoder.
+gradio==6.28.0
