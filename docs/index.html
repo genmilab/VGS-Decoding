@@ -152,12 +152,12 @@
         <div class="figure-topline">
           <span class="small-label" id="figure-title"
             >VGS-DECODING ARCHITECTURE</span
-          ><span>One question. Two image-conditioned paths.</span>
+          ><span>Visual sensitivity guides each decoding step.</span>
         </div>
         <figure class="overview-figure">
           <a
             href="assets/VGSDecoding.pdf"
-            aria-label="Open the paper architecture figure as a full-resolution PDF"
+            aria-label="Open the VGS-Decoding architecture as a full-resolution PDF"
             ><img
               src="assets/VGSDecoding.png"
               width="2400"
@@ -165,7 +165,7 @@
               alt="The same question and answer prefix are processed with an original image and a perturbed image. Two independent model caches produce probability distributions. Their normalized difference gives VGS, which reweights the clean distribution to select the next token."
           /></a>
           <figcaption>
-            <strong>Architecture from the paper.</strong> Original and perturbed
+            <strong>Our VGS-Decoding framework.</strong> Original and perturbed
             images pass through the same frozen medical VLM. Their token
             distributions produce VGS, which guides probability reweighting.
             <a href="assets/VGSDecoding.pdf">View full-resolution figure ↗</a>
@@ -191,11 +191,11 @@
         <p>
           Medical vision–language models can generate plausible answers that
           rely on learned language patterns rather than the image in front of
-          them. VGS-Decoding introduces a token-level mechanism for probing this
-          visual dependence and using it during generation. The method compares
-          the same model’s predictions for an original image and one perturbed
-          version, turning their normalized probability difference into a
-          bounded Visual Grounding Score. This score supplies a separate
+          them. We introduce VGS-Decoding, a token-level mechanism for probing
+          this visual dependence and using it during generation. The method
+          compares the same model’s predictions for an original image and one
+          perturbed version, turning their normalized probability difference
+          into a bounded Visual Grounding Score. This score supplies a separate
           multiplicative adjustment for every candidate token. The model remains
           frozen: no retraining, additional expert model, or architectural
           modification is required.
@@ -206,18 +206,11 @@
           while maintaining independent visual contexts and decoding caches.
         </p>
         <p>
-          The paper studies this approach across
+          We study this approach across
           <strong>LLaVA-Med, CheXagent, and MedGemma</strong> on
-          <strong>VQA-RAD, SLAKE, and MIMIC-Diff-VQA</strong>. It connects
-          token-level probing with a lightweight decoding policy, making visual
-          sensitivity directly inspectable during generation.
-        </p>
-        <p class="fine-print">
-          Project abstract adapted from the supplied manuscript. Read the
-          <a href="https://arxiv.org/abs/2603.20314"
-            >published preprint abstract</a
-          >
-          for the arXiv version.
+          <strong>VQA-RAD, SLAKE, and MIMIC-Diff-VQA</strong>. Our approach
+          connects token-level probing with a lightweight decoding policy,
+          making visual sensitivity directly inspectable during generation.
         </p>
       </section>
 
@@ -242,17 +235,17 @@
           <figure class="paper-figure">
             <a
               href="assets/Frame%202%20(1).png"
-              aria-label="Open the paper motivating example"
+              aria-label="Open the motivating CT example"
               ><img
                 src="assets/Frame%202%20(1).png"
                 width="600"
                 height="300"
                 loading="lazy"
-                alt="Manuscript example comparing greedy, VCD, DoLA, OPERA, and VGS answers to an abdominal CT question; the provided reference answer is small bowel."
+                alt="Comparison of greedy, VCD, DoLA, OPERA, and VGS answers to an abdominal CT question; the reference answer is small bowel."
             /></a>
             <figcaption>
-              Illustrative example from the manuscript introduction. The image
-              and model responses are reproduced as supplied by the authors.
+              Comparing greedy, VCD, DoLA, OPERA, and VGS-Decoding on an
+              abdominal CT question.
             </figcaption>
           </figure>
           <div class="motivation-copy">
@@ -466,8 +459,8 @@
               <li>MedGemma</li>
             </ul>
             <p>
-              The manuscript examines the same probing and decoding principle
-              across three medical vision–language model families.
+              We evaluate the same probing and decoding principle across three
+              medical vision–language model families.
             </p>
           </article>
           <article class="study-card">
@@ -479,9 +472,8 @@
               <li>MIMIC-Diff-VQA</li>
             </ul>
             <p>
-              The paper studies medical visual question answering across these
-              datasets, with comparisons to greedy, VCD, DoLA, and OPERA
-              decoding.
+              We study medical visual question answering across these datasets,
+              with comparisons to greedy, VCD, DoLA, and OPERA decoding.
             </p>
           </article>
         </div>
@@ -490,9 +482,9 @@
             <span class="small-label">A TOKEN-LEVEL VIEW</span>
             <h3>One answer.<br />Different visual dependencies.</h3>
             <p>
-              The paper breaks down VGS by laterality, numeral, anatomy, and
-              function tokens. This view reveals how perturbation sensitivity
-              varies across token categories and model families.
+              We analyze VGS across laterality, numeral, anatomy, and function
+              tokens. This view reveals how perturbation sensitivity varies
+              across token categories and model families.
             </p>
             <p>
               A positive VGS means that a token is more probable with the
@@ -502,18 +494,16 @@
           <figure class="paper-figure">
             <a
               href="assets/vgs_bar.png"
-              aria-label="Open the paper token-category figure at full size"
+              aria-label="Open the token-category analysis at full size"
               ><img
                 src="assets/vgs_bar.png"
                 width="1332"
                 height="728"
                 loading="lazy"
-                alt="Paper chart of mean VGS with standard-deviation bars for laterality, numeral, anatomy, and function tokens across LLaVA-Med, MedGemma, and CheXagent on VQA-RAD."
+                alt="Mean VGS with standard-deviation bars for laterality, numeral, anatomy, and function tokens across LLaVA-Med, MedGemma, and CheXagent on VQA-RAD."
             /></a>
             <figcaption>
-              Token-category analysis from the manuscript: mean VGS ± standard
-              deviation on VQA-RAD. VGS describes sensitivity, not answer
-              accuracy.
+              Mean VGS ± standard deviation across token categories on VQA-RAD.
             </figcaption>
           </figure>
         </div>
@@ -527,23 +517,12 @@
         <div class="section-heading">
           <div>
             <p class="section-kicker">04 / EXPERIMENTAL RESULTS</p>
-            <h2 id="results-title">
-              The paper’s full<br />benchmark comparison.
-            </h2>
+            <h2 id="results-title">Our benchmark<br />comparison.</h2>
           </div>
           <p>
             Greedy · VCD · DoLA · OPERA · VGS<br />Three backbones, three
             dataset settings.
           </p>
-        </div>
-        <div class="source-note">
-          <strong>Manuscript-reported results.</strong> These tables reproduce
-          Table 1 of the supplied three-dataset submission, including SLAKE. The
-          linked arXiv v1 presents the earlier two-dataset study. They are paper
-          records, not new evaluations of the released code.
-          <a href="PAPER_VERIFICATION.md"
-            >Paper verification and source-table notes ↗</a
-          >
         </div>
         <div class="metric-key">
           <p>
@@ -620,12 +599,12 @@
             class="table-scroll"
             tabindex="0"
             role="region"
-            aria-label="VQA-RAD · manuscript Table 1"
+            aria-label="VQA-RAD results"
             aria-describedby="results-legend"
           >
             <table class="paper-table main-results-table">
               <caption>
-                VQA-RAD · manuscript Table 1
+                VQA-RAD results
               </caption>
               <thead>
                 <tr>
@@ -1052,12 +1031,12 @@
             class="table-scroll"
             tabindex="0"
             role="region"
-            aria-label="MIMIC-Diff-VQA · manuscript Table 1"
+            aria-label="MIMIC-Diff-VQA results"
             aria-describedby="results-legend"
           >
             <table class="paper-table main-results-table">
               <caption>
-                MIMIC-Diff-VQA · manuscript Table 1
+                MIMIC-Diff-VQA results
               </caption>
               <thead>
                 <tr>
@@ -1482,12 +1461,12 @@
             class="table-scroll"
             tabindex="0"
             role="region"
-            aria-label="SLAKE · manuscript Table 1"
+            aria-label="SLAKE results"
             aria-describedby="results-legend"
           >
             <table class="paper-table main-results-table">
               <caption>
-                SLAKE · manuscript Table 1
+                SLAKE results
               </caption>
               <thead>
                 <tr>
@@ -1909,7 +1888,7 @@
           itself, evidence of reduced hallucination or clinical correctness.
         </p>
         <details class="figure-disclosure">
-          <summary>View the original results figure</summary>
+          <summary>View the results overview</summary>
           <figure class="paper-figure">
             <a href="assets/results.pdf"
               ><img
@@ -1917,12 +1896,12 @@
                 width="2277"
                 height="730"
                 loading="lazy"
-                alt="Original paper results plot comparing open, closed, and overall scores across five decoding methods for LLaVA-Med, CheXagent, and MedGemma."
+                alt="Results comparing open, closed, and overall scores across five decoding methods for LLaVA-Med, CheXagent, and MedGemma."
             /></a>
             <figcaption>
-              Original results figure supplied with the manuscript. The graphic
-              is preserved unchanged; use the tables above for exact tabulated
-              values. <a href="assets/results.pdf">Full-resolution PDF ↗</a>
+              Performance across models and decoding methods. See the tables
+              above for exact scores.
+              <a href="assets/results.pdf">Full-resolution PDF ↗</a>
             </figcaption>
           </figure>
         </details>
@@ -1944,9 +1923,9 @@
             </p>
           </div>
           <p class="section-intro">
-            The manuscript investigates the score itself as well as the decoding
-            policy. The mean-score chart above summarizes each category; the
-            distribution view below shows the variation within categories.
+            We investigate the score itself as well as the decoding policy. The
+            mean-score chart above summarizes each category; the distribution
+            view below shows the variation within categories.
           </p>
           <figure class="paper-figure wide-figure">
             <a href="assets/vgs_violin.png"
@@ -1955,10 +1934,10 @@
                 width="1482"
                 height="728"
                 loading="lazy"
-                alt="Supplied violin plot showing VGS distributions across four token categories for LLaVA-Med, MedGemma, and CheXagent."
+                alt="VGS distributions across four token categories for LLaVA-Med, MedGemma, and CheXagent."
             /></a>
             <figcaption>
-              VGS distribution visualization from the supplied figure assets.
+              VGS distributions across token categories and model families.
               Positive scores indicate higher probability under the original
               image than under the chosen perturbation. They do not certify
               correctness.
@@ -1973,11 +1952,11 @@
                   width="1332"
                   height="728"
                   loading="lazy"
-                  alt="Additional supplied bar-chart asset with mean VGS and standard-deviation bars by token category and model."
+                  alt="Mean VGS and standard-deviation bars by token category and model."
               /></a>
               <figcaption>
-                Additional mean-score rendering from the manuscript’s image
-                folder. Both supplied bar-chart assets are retained.
+                Comparing mean visual sensitivity across token categories and
+                model families. Error bars show standard deviation.
               </figcaption>
             </figure>
           </details>
@@ -1992,7 +1971,7 @@
             <article>
               <h3>Perturbation sensitivity</h3>
               <p>
-                The appendix measures score magnitude and argmax changes across
+                We measure score magnitude and argmax changes across
                 Gaussian–Poisson settings with the token sequence held fixed.
               </p>
             </article>
@@ -2019,22 +1998,18 @@
               Explore the settings.<br />Inspect the evidence.
             </h2>
           </div>
-          <p>
-            Seventeen expandable appendix tables.<br />Every model row retained.
-          </p>
+          <p>Seventeen detailed tables.<br />Explore each configuration.</p>
         </div>
         <p class="section-intro">
-          The supplied manuscript studies component choices, guidance strength,
-          perturbations, decoding strategy, tuned comparators, and transfer
-          settings. Open each table for the configuration and reported values.
+          We study component choices, guidance strength, perturbations, decoding
+          strategy, tuned comparators, and transfer settings. Open each table to
+          explore the configuration and results.
         </p>
         <div class="source-note">
           O / C / Ov mean open-answer recall / closed-answer accuracy / the
           weighted mixed score, in percent unless noted. The appendix uses
           several configurations, so compare methods within the same table.
-          Probe-only entries below include the verified equality correction;
-          other entries are manuscript-reported rather than freshly validated
-          results.
+          Probe-only entries are corrected to equal greedy.
         </div>
         <div class="appendix-tables">
           <details class="appendix-table" id="tab-vgs_probe">
@@ -2047,14 +2022,14 @@
                 deviation / token count.
               </p>
               <div
-                aria-label="Token-category statistics · manuscript appendix"
+                aria-label="Token-category statistics"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table">
                   <caption>
-                    Token-category statistics · manuscript appendix
+                    Token-category statistics
                   </caption>
                   <thead>
                     <tr>
@@ -2271,18 +2246,18 @@
             <div class="details-body">
               <p class="fine-print">
                 VQA-RAD. Probe-only is corrected to greedy equality: measuring
-                an unused score cannot change the selected tokens. Other entries
-                retain manuscript values.
+                an unused score cannot change the selected tokens. Other results
+                are unchanged.
               </p>
               <div
-                aria-label="Component ablation · LLaVA-Med · manuscript appendix"
+                aria-label="Component ablation · LLaVA-Med"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table">
                   <caption>
-                    Component ablation · LLaVA-Med · manuscript appendix
+                    Component ablation · LLaVA-Med
                   </caption>
                   <thead>
                     <tr>
@@ -2447,18 +2422,17 @@
             <div class="details-body">
               <p class="fine-print">
                 VQA-RAD. Probe-only is corrected to greedy equality, supported
-                by the saved-output identity check. Other entries retain
-                manuscript values.
+                by the saved-output identity check. Other results are unchanged.
               </p>
               <div
-                aria-label="Component ablation · MedGemma · manuscript appendix"
+                aria-label="Component ablation · MedGemma"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table">
                   <caption>
-                    Component ablation · MedGemma · manuscript appendix
+                    Component ablation · MedGemma
                   </caption>
                   <thead>
                     <tr>
@@ -2626,14 +2600,14 @@
                 strength.
               </p>
               <div
-                aria-label="VCD contrast-strength sweep · manuscript appendix"
+                aria-label="VCD contrast-strength sweep"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table paired-model-table">
                   <caption>
-                    VCD contrast-strength sweep · manuscript appendix
+                    VCD contrast-strength sweep
                   </caption>
                   <thead>
                     <tr>
@@ -3074,14 +3048,14 @@
                 high, and spread layer buckets.
               </p>
               <div
-                aria-label="DoLA layer-selection sweep · manuscript appendix"
+                aria-label="DoLA layer-selection sweep"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table paired-model-table">
                   <caption>
-                    DoLA layer-selection sweep · manuscript appendix
+                    DoLA layer-selection sweep
                   </caption>
                   <thead>
                     <tr>
@@ -3361,14 +3335,14 @@
                 VQA-RAD, α = 1.0. The release default is δ = 0.01.
               </p>
               <div
-                aria-label="Probability-floor sensitivity · manuscript appendix"
+                aria-label="Probability-floor sensitivity"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table paired-model-table">
                   <caption>
-                    Probability-floor sensitivity · manuscript appendix
+                    Probability-floor sensitivity
                   </caption>
                   <thead>
                     <tr>
@@ -3648,14 +3622,14 @@
                 LLaVA-Med / VQA-RAD. The release uses one perturbed view, M = 1.
               </p>
               <div
-                aria-label="Number of perturbed views · manuscript appendix"
+                aria-label="Number of perturbed views"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table">
                   <caption>
-                    Number of perturbed views · manuscript appendix
+                    Number of perturbed views
                   </caption>
                   <thead>
                     <tr>
@@ -3790,18 +3764,18 @@
             </summary>
             <div class="details-body">
               <p class="fine-print">
-                VQA-RAD with VGS. The manuscript's greedy-only baselines are
+                VQA-RAD with VGS. Our greedy-only baselines for this study are
                 51.93 (LLaVA-Med) and 56.74 (MedGemma).
               </p>
               <div
-                aria-label="Decoding-strategy study · manuscript appendix"
+                aria-label="Decoding-strategy study"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table paired-model-table">
                   <caption>
-                    Decoding-strategy study · manuscript appendix
+                    Decoding-strategy study
                   </caption>
                   <thead>
                     <tr>
@@ -4004,14 +3978,14 @@
                 separate from the test-set sweep.
               </p>
               <div
-                aria-label="Held-out guidance-strength selection · manuscript appendix"
+                aria-label="Held-out guidance-strength selection"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table paired-model-table">
                   <caption>
-                    Held-out guidance-strength selection · manuscript appendix
+                    Held-out guidance-strength selection
                   </caption>
                   <thead>
                     <tr>
@@ -4290,18 +4264,18 @@
             </summary>
             <div class="details-body">
               <p class="fine-print">
-                VQA-RAD test set. Values and p-values are transcribed from the
-                manuscript; they are not newly recomputed statistics.
+                Guidance-strength sensitivity on the VQA-RAD test set, with
+                scores and p-values for each setting.
               </p>
               <div
-                aria-label="Test-set guidance-strength sensitivity · manuscript appendix"
+                aria-label="Test-set guidance-strength sensitivity"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table">
                   <caption>
-                    Test-set guidance-strength sensitivity · manuscript appendix
+                    Test-set guidance-strength sensitivity
                   </caption>
                   <thead>
                     <tr>
@@ -4495,14 +4469,14 @@
                 scale.
               </p>
               <div
-                aria-label="Gaussian–Poisson perturbation grid · manuscript appendix"
+                aria-label="Gaussian–Poisson perturbation grid"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table paired-model-table">
                   <caption>
-                    Gaussian–Poisson perturbation grid · manuscript appendix
+                    Gaussian–Poisson perturbation grid
                   </caption>
                   <thead>
                     <tr>
@@ -4945,14 +4919,14 @@
                 brightness are compared with combined noise.
               </p>
               <div
-                aria-label="Perturbation types and intensities · manuscript appendix"
+                aria-label="Perturbation types and intensities"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table">
                   <caption>
-                    Perturbation types and intensities · manuscript appendix
+                    Perturbation types and intensities
                   </caption>
                   <thead>
                     <tr>
@@ -5140,18 +5114,17 @@
             </summary>
             <div class="details-body">
               <p class="fine-print">
-                LLaVA-Med, manuscript-reported PathVQA test set of 6,719
-                questions.
+                LLaVA-Med on the PathVQA test set: 6,719 questions.
               </p>
               <div
-                aria-label="PathVQA transfer study · manuscript appendix"
+                aria-label="PathVQA transfer study"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table">
                   <caption>
-                    PathVQA transfer study · manuscript appendix
+                    PathVQA transfer study
                   </caption>
                   <thead>
                     <tr>
@@ -5268,18 +5241,18 @@
             <div class="details-body">
               <p class="fine-print">
                 SLAKE, 1,061 questions. The region comparator is an ARCD-style
-                port, not the native ARCD system. Mask use is as described in
-                the submitted manuscript.
+                port, not the native ARCD system. The mask column describes the
+                configuration used in this comparison.
               </p>
               <div
-                aria-label="Same-backbone comparisons on SLAKE · manuscript appendix"
+                aria-label="Same-backbone comparisons on SLAKE"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table paired-model-table">
                   <caption>
-                    Same-backbone comparisons on SLAKE · manuscript appendix
+                    Same-backbone comparisons on SLAKE
                   </caption>
                   <thead>
                     <tr>
@@ -5594,15 +5567,14 @@
                 These are sensitivity measurements, not answer-quality scores.
               </p>
               <div
-                aria-label="Perturbation strength at the signal level · manuscript appendix"
+                aria-label="Perturbation strength at the signal level"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table">
                   <caption>
-                    Perturbation strength at the signal level · manuscript
-                    appendix
+                    Perturbation strength at the signal level
                   </caption>
                   <thead>
                     <tr>
@@ -5906,14 +5878,14 @@
                 dependence, not clinical correctness.
               </p>
               <div
-                aria-label="Image-swap dependency analysis · manuscript appendix"
+                aria-label="Image-swap dependency analysis"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table">
                   <caption>
-                    Image-swap dependency analysis · manuscript appendix
+                    Image-swap dependency analysis
                   </caption>
                   <thead>
                     <tr>
@@ -6043,14 +6015,14 @@
                 scoring configuration.
               </p>
               <div
-                aria-label="Function-word ablation · manuscript appendix"
+                aria-label="Function-word ablation"
                 class="table-scroll"
                 role="region"
                 tabindex="0"
               >
                 <table class="paper-table">
                   <caption>
-                    Function-word ablation · manuscript appendix
+                    Function-word ablation
                   </caption>
                   <thead>
                     <tr>
@@ -6129,16 +6101,16 @@
               </h2>
             </div>
             <p>
-              Original images and responses from the appendix.<br />LLaVA-Med on
+              Comparing answers across decoding methods.<br />LLaVA-Med on
               VQA-RAD.
             </p>
           </div>
           <p class="section-intro">
-            These are the six selected illustrative cases in the supplied
-            manuscript. Each card preserves its question, reference answer, VGS
-            response, and all four baseline responses. Selected examples
-            illustrate behavior; they do not estimate an overall success rate or
-            verify every additional clinical statement in a generated answer.
+            We compare VGS-Decoding with four baselines on six illustrative
+            VQA-RAD cases. Each card shows the question, reference answer, and
+            all five model responses. Selected examples illustrate behavior;
+            they do not estimate an overall success rate or verify every
+            additional clinical statement in a generated answer.
           </p>
           <div class="case-grid">
             <article class="case-card" id="case-1">
@@ -6151,7 +6123,7 @@
                   width="512"
                   height="512"
                   loading="lazy"
-                  alt="Original VQA-RAD image reproduced in manuscript appendix case A"
+                  alt="VQA-RAD research image for case A"
               /></a>
               <div class="case-content">
                 <span class="small-label">LLAVA-MED · VQA-RAD · CASE A</span>
@@ -6198,7 +6170,7 @@
                   width="512"
                   height="512"
                   loading="lazy"
-                  alt="Original VQA-RAD image reproduced in manuscript appendix case B"
+                  alt="VQA-RAD research image for case B"
               /></a>
               <div class="case-content">
                 <span class="small-label">LLAVA-MED · VQA-RAD · CASE B</span>
@@ -6245,7 +6217,7 @@
                   width="512"
                   height="512"
                   loading="lazy"
-                  alt="Original VQA-RAD image reproduced in manuscript appendix case C"
+                  alt="VQA-RAD research image for case C"
               /></a>
               <div class="case-content">
                 <span class="small-label">LLAVA-MED · VQA-RAD · CASE C</span>
@@ -6293,7 +6265,7 @@
                   width="512"
                   height="512"
                   loading="lazy"
-                  alt="Original VQA-RAD image reproduced in manuscript appendix case D"
+                  alt="VQA-RAD research image for case D"
               /></a>
               <div class="case-content">
                 <span class="small-label">LLAVA-MED · VQA-RAD · CASE D</span>
@@ -6342,7 +6314,7 @@
                   width="512"
                   height="512"
                   loading="lazy"
-                  alt="Original VQA-RAD image reproduced in manuscript appendix case E"
+                  alt="VQA-RAD research image for case E"
               /></a>
               <div class="case-content">
                 <span class="small-label">LLAVA-MED · VQA-RAD · CASE E</span>
@@ -6385,7 +6357,7 @@
                   width="512"
                   height="512"
                   loading="lazy"
-                  alt="Original VQA-RAD image reproduced in manuscript appendix case F"
+                  alt="VQA-RAD research image for case F"
               /></a>
               <div class="case-content">
                 <span class="small-label">LLAVA-MED · VQA-RAD · CASE F</span>
@@ -6654,11 +6626,6 @@
   doi = {10.48550/arXiv.2603.20314},
   url = {https://arxiv.org/abs/2603.20314}
 }</code></pre>
-          <p class="fine-print citation-version">
-            This citation follows the author list of arXiv:2603.20314. The
-            project-page author list above reflects the authors’ requested
-            update.
-          </p>
         </div>
       </section>
       <section
@@ -6673,11 +6640,6 @@
           Lexical metrics and selected examples do not establish diagnostic
           safety; the method is not intended to replace expert image
           interpretation.
-        </p>
-        <p class="fine-print">
-          Page content combines the linked preprint with the author-supplied
-          extended manuscript.
-          <a href="CONTENT_SOURCES.md">Content sources and version notes ↗</a>
         </p>
       </section>
     </main>

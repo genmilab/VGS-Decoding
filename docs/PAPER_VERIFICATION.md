@@ -20,8 +20,9 @@ paper's benchmark results or a clinical validation.
   affiliations, and removal of Govinda's second affiliation are author-requested
   project updates, not facts independently established by the five-author
   arXiv record. The BibTeX retains the actual five-author record.
-- The website abstract is an explicitly labeled adaptation, not a verbatim
-  paper abstract. The new interactive demo is a software addition, not a
+- The website abstract is a project summary in the authors' voice, not a verbatim
+  paper abstract; this distinction is documented in `CONTENT_SOURCES.md`.
+  The new interactive demo is a software addition, not a
   paper experiment or evidence for new performance claims.
 
 ## Verified against the supplied manuscript

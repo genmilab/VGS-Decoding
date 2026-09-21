@@ -40,7 +40,12 @@ The website abstract is an adapted project summary, not a verbatim quotation of
 either abstract. The paper buttons link to arXiv; the results and appendix
 material come from the author-supplied extended `acl_latex_aug.tex` manuscript.
 The arXiv v1 study covers VQA-RAD and MIMIC-Diff-VQA. The supplied submission adds
-SLAKE and the expanded appendix. The results section identifies that difference.
+SLAKE and the expanded appendix. The authors are preparing an updated arXiv
+version. The page presents their expanded work in the authors' voice; repeated
+source-attribution captions are omitted. Until the update is published, its
+citation retains the available arXiv record. The version distinctions,
+detailed provenance and verification remain in these documentation files
+rather than repeated beneath each figure or the citation.
 
 ## Tables
 
