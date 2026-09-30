@@ -13,11 +13,11 @@
 
 [![Project Page](https://img.shields.io/badge/Project-Page-147B82?style=for-the-badge&logo=googlelens&logoColor=white)](https://genmilab.github.io/VGS-Decoding/)
 [![arXiv](https://img.shields.io/badge/arXiv-2603.20314-b31b1b?style=for-the-badge&logo=arxiv&logoColor=b31b1b)](https://arxiv.org/abs/2603.20314)
-[![LLaVA-Med](https://img.shields.io/badge/HF-LLaVA--Med_7B-FFCC00?style=for-the-badge&logo=huggingface&logoColor=FFCC00&labelColor=grey)](https://huggingface.co/chaoyinshe/llava-med-v1.5-mistral-7b-hf)
-[![MedGemma](https://img.shields.io/badge/HF-MedGemma_4B-FFCC00?style=for-the-badge&logo=huggingface&logoColor=FFCC00&labelColor=grey)](https://huggingface.co/google/medgemma-4b-it)
 [![VQA-RAD](https://img.shields.io/badge/HF-VQA--RAD-AECBFA?style=for-the-badge&logo=huggingface&logoColor=FFCC00&labelColor=grey)](https://huggingface.co/datasets/flaviagiammarino/vqa-rad)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![Visitors](https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2Fgenmilab%2FVGS-Decoding&label=Views&countColor=%23147b82&style=for-the-badge)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fgenmilab%2FVGS-Decoding)
+
+<h3>🌐 <a href="https://genmilab.github.io/VGS-Decoding/">Project Page</a> &nbsp;|&nbsp; 📄 <a href="https://arxiv.org/abs/2603.20314">Paper</a> &nbsp;|&nbsp; 💻 <a href="#-quick-start">Code</a></h3>
 
 **[Govinda Kolli](https://github.com/govindakolli)<sup>\*</sup>, [Adinath Madhavrao Dukre](https://github.com/adinathdukre)<sup>\*</sup>, Yifan Lu, Ziyun Zou, Dwarikanath Mahapatra, Behzad Bozorgtabar, Imran Razzak**
 
